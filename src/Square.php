@@ -1,8 +1,15 @@
 <?php
 
-// /////////////////////////////////////////////////////////////////////////////
-// WORKING AREA
-// THIS IS AN AREA WHERE YOU SHOULD WRITE YOUR CODE AND MAKE CHANGES
-// /////////////////////////////////////////////////////////////////////////////
-
 namespace App;
+
+class Square extends Rectangle implements ShapeInterface
+{
+    /**
+     * Square constructor.
+     * @param float $side
+     */
+    public function __construct(float $side)
+    {
+        parent::__construct($side, $side);
+    }
+}

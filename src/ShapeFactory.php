@@ -31,6 +31,27 @@ class ShapeFactory
      */
     public static function createShape(string $shape, array $params = [])
     {
-        // ToDo
+        switch ($shape) {
+            case 'Circle':
+                if (count($params) !== 1) {
+                    throw new WrongParamCountException('Invalid number of parameters for Circle');
+                }
+                return new Circle($params[0]);
+
+            case 'Rectangle':
+                if (count($params) !== 2) {
+                    throw new WrongParamCountException('Invalid number of parameters for Rectangle');
+                }
+                return new Rectangle($params[0], $params[1]);
+
+            case 'Square':
+                if (count($params) !== 1) {
+                    throw new WrongParamCountException('Invalid number of parameters for Square');
+                }
+                return new Square($params[0]);
+
+            default:
+                throw new UnsupportedShapeException('Unsupported shape: ' . $shape);
+        }
     }
 }
